@@ -1,4 +1,4 @@
-% Starter code prepared by James Hays
+% Code prepared by Sina Darvishi
 
 % This function creates a webpage (html and images) visualizing the
 % classiffication results. This webpage will contain
@@ -75,41 +75,8 @@ saveas(fig_handle, 'results/confusion_matrix.png')
 
 %% Create webpage header
 
-%fprintf(fid,'<!DOCTYPE html>\n');
-%fprintf(fid,'<html>\n');
-%fprintf(fid,'<head>\n');
-%fprintf(fid,'<link href=''http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono'' rel=''stylesheet'' type=''text/css''>\n');
-%fprintf(fid,'<style type="text/css">\n');
-
-%fprintf(fid,'body {\n');
-%fprintf(fid,'  margin: 0px;\n');
-%fprintf(fid,'  width: 100%%;\n');
-%fprintf(fid,'  font-family: ''Crimson Text'', serif;\n');
-%fprintf(fid,'  background: #fcfcfc;\n');
-%fprintf(fid,'}\n');
-%fprintf(fid,'table td {\n');
-%fprintf(fid,'  text-align: center;\n');
-%fprintf(fid,'  vertical-align: middle;\n');
-%fprintf(fid,'}\n');
-%fprintf(fid,'h1 {\n');
-%fprintf(fid,'  font-family: ''Nunito'', sans-serif;\n');
-%fprintf(fid,'  font-weight: normal;\n');
-%fprintf(fid,'  font-size: 28px;\n');
-%fprintf(fid,'  margin: 25px 0px 0px 0px;\n');
-%fprintf(fid,'  text-transform: lowercase;\n');
-%fprintf(fid,'}\n');
-%fprintf(fid,'.container {\n');
-%fprintf(fid,'  margin: 0px auto 0px auto;\n');
-%fprintf(fid,'  width: 1160px;\n');
-%fprintf(fid,'}\n');
-
-%fprintf(fid,'</style>\n');
-%fprintf(fid,'</head>\n');
-%fprintf(fid,'<body>\n\n');
-
-%fprintf(fid,'<div class="container">\n\n\n');
 fprintf(fid,'<center>\n');
-fprintf(fid,'<h1>results visualization</h1>\n');
+fprintf(fid,'<h1>Visualization Results</h1>\n');
 fprintf(fid,'<img src="confusion_matrix.png">\n\n');
 fprintf(fid,'<br>\n');
 fprintf(fid,'Accuracy (mean of diagonal of confusion matrix) is %.3f\n', accuracy);
@@ -272,9 +239,6 @@ fprintf(fid,'</tr>\n');
 
 fprintf(fid,'</table>\n');
 fprintf(fid,'</center>\n\n\n');
-%fprintf(fid,'</div>\n')
 
 %% Create end of web page
-%fprintf(fid,'</body>\n');
-%fprintf(fid,'</html>\n');
 fclose(fid);

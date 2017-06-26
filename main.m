@@ -1,9 +1,11 @@
-% This code provided by Sina Darvishi
+% Code prepared by Sina Darvishi
 %% Step 0: split videos to frames.
+
 % first step is to split every videos to frames that contains our features
 % get_frames will split videos to train and test frames(images) that we can
 % now process on them.after first run of get_frames function we can comment
 % it in future so we can process faster.
+
 fprintf('Splitting Videos to frames...\n')
 % get_frames('D:\Sina\MATLAB\Projects\Video-Scene-Recognition\Data\videos\split.mat');
 fprintf('Splitting Finished!!!\n')
@@ -17,15 +19,15 @@ CLASSIFIER = 'libsvm';
 % This should work on 32 and 64 bit versions of Windows, MacOS, and Linux,
 % you should change it to your location
 run('D:/Sina/Downloads/Compressed/VLFEATROOT/toolbox/vl_setup')
-%direction of svm-lib
+% direction of svm-lib
 cd D:\Sina\Downloads\Compressed\libsvm-322\matlab
 make
-%back to code directory
+% back to code directory
 cd D:\Sina\MATLAB\Projects\Video-Scene-Recognition
 
 data_path = './data/'; %change if you want to work with a network copy
 
-%This is the list of categories / directories to use. The categories are
+%This is the list of categories/directories to use. The categories are
 %somewhat sorted by similarity so that the confusion matrix looks more
 %structured (indoor and then urban and then rural).
 categories = {'ApplyEyeMakeup', 'Archery', 'BaseballPitch', 'CricketBowling', 'Diving', ...
@@ -36,22 +38,17 @@ categories = {'ApplyEyeMakeup', 'Archery', 'BaseballPitch', 'CricketBowling', 'D
 abbr_categories = {'Am', 'Ar', 'BP', 'CB', 'Di', 'Ha', 'HT', ...
     'HM', 'Ju', 'K', 'PF', 'Rl', 'Ro', 'TT', 'WO'};
 
-%number of training examples per category to use. Max is 100. For
-%simplicity, we assume this is the number of test cases per category, as
-%well.
-num_train_per_cat = 100;
-
 %This function returns cell arrays containing the file path for each train
 %and test image, as well as cell arrays with the label of each train and
 %test image. By default all four of these arrays will be 1500x1 where each
 %entry is a char array (or string).
 fprintf('Getting paths and labels for all train and test data\n')
 [train_image_paths, test_image_paths, train_labels, test_labels] = ...
-    get_image_paths(data_path, categories, num_train_per_cat);
-%   train_image_paths  1500x1   cell
-%   test_image_paths   1500x1   cell
-%   train_labels       1500x1   cell
-%   test_labels        1500x1   cell
+    get_image_paths(data_path, categories);
+%   train_image_paths  1568x1   cell
+%   test_image_paths   611x1   cell
+%   train_labels       1568x1   cell
+%   test_labels        611x1   cell
 
 %% Step 2: Represent each image with the appropriate feature
 % Each function to construct features should return an N x d matrix, where
@@ -61,8 +58,7 @@ fprintf('Getting paths and labels for all train and test data\n')
 
 fprintf('Using %s representation for images\n', FEATURE)
 
-% YOU CODE build_vocabulary.m
-vocab_size = 611; %Larger values will work better (to a point) but be slower to compute
+vocab_size = 1000; %Larger values will work better (to a point) but be slower to compute
 if ~exist(['vocab_size', num2str(vocab_size),'.mat'], 'file')
     fprintf('No existing visual word vocabulary found. Computing one from training images\n')
     vocab = build_vocabulary(train_image_paths, vocab_size);

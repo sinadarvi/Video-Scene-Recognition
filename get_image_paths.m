@@ -1,11 +1,11 @@
-% Starter code prepared by James Hays
+% Code prepared by Sina Darvishi
 
 %This function returns cell arrays containing the file path for each train
 %and test image, as well as cell arrays with the label of each train and
 %test image. By default all four of these arrays will be 1500x1 where each
 %entry is a char array (or string).
 function [train_image_paths, test_image_paths, train_labels, test_labels] = ... 
-    get_image_paths(data_path, categories, num_train_per_cat)
+    get_image_paths(data_path, categories)
 
 num_categories = length(categories); %number of scene categories.
 

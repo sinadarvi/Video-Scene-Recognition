@@ -1,4 +1,4 @@
-% Starter code prepared by James Hays
+% Code prepared by Sina Darvishi
 
 %This function will sample SIFT descriptors from the training images,
 %cluster them with kmeans, and then return the cluster centers.

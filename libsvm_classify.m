@@ -1,4 +1,4 @@
-% Starter code prepared by James Hays
+% Code prepared by Sina Darvishi
 
 %This function will train a linear SVM for every category (i.e. one vs all)
 %and then use the learned linear classifiers to predict the category of

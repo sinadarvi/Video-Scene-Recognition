@@ -1,4 +1,4 @@
-% Starter code prepared by James Hays
+% Code prepared by Sina Darvishi
 
 %This feature representation is described in the handout, lecture
 %materials, and Szeliski chapter 14.

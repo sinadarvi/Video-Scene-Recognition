@@ -1,7 +1,9 @@
-function  get_frames( raw_video_path )
-%GET_FRAMES will split videos to frames
+% Code prepared by Sina Darvishi
+
+%   GET_FRAMES will split videos to frames
 %   will get just a pat to split file in your Data directory.your directory
 %   should have 3 directory in it self."videos","train","test".
+function  get_frames( raw_video_path )
 
 % first we split test videos
 fprintf('Splitting test videos...\n')
